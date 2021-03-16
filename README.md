@@ -25,3 +25,5 @@ section Section
 ## 개발인원
 
 강창현
+
+서진우
