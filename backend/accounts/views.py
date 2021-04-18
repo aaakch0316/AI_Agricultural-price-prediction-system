@@ -10,13 +10,19 @@ from .models import User
 
 
 
+
+
 # Create your views here.
 @api_view(['POST']) 
 @permission_classes([AllowAny]) # 인증 필요없다
 def signup(request):
+    print(111)
     serializer = UserCreateSerializer(data=request.data) 
+    print(22)
     if serializer.is_valid(raise_exception=True):
+        print(33)
         serializer.save() # DB 저장
+        print(44)
         return Response(serializer.data, status=201) 
 
 
