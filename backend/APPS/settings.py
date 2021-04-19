@@ -120,7 +120,8 @@ WSGI_APPLICATION = 'APPS.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        # 'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
@@ -153,7 +154,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'ko-kr'
 
-TIME_ZONE = 'Asia/seoul'
+TIME_ZONE = 'UTC'
 
 USE_I18N = True
 
@@ -168,7 +169,8 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 # auth 유저 모델은 accounts의 User를 쓰겠다는 의미
-AUTH_USER_MODEL = 'accounts.User'
+# AUTH_USER_MODEL = 'accounts.User'
+
 
 
 ## DRF 
