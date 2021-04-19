@@ -15,6 +15,10 @@ Heroku
 settings.py 수정
 import dj_database_url
 
+heroku login
+heroku create agri-price-predict-system
+git push heroku main
+
 ## 일정
 
 ```mermaid

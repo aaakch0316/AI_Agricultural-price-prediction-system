@@ -72,6 +72,9 @@ INSTALLED_APPS = [
     # My Apps
     'accounts',
     'prices',
+
+    # Heroku
+    'dj_database_url',
 ]
 
 MIDDLEWARE = [
