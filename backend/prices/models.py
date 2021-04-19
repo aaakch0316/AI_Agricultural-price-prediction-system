@@ -46,6 +46,8 @@ class Output(models.Model):
 
 
 
+# class Volume(models.Model):
+
 # class Article(models.Model):
 #     title = models.CharField(max_length=100)
 #     content = models.TextField()
