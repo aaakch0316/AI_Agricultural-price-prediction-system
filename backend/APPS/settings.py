@@ -13,11 +13,11 @@ import dj_database_url
 
 from pathlib import Path
 import datetime
+import os, json
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-import os, json
 # from django.core.exceptions import ImproperlyConfigured # 예외처리 할 부분 불어오기
 
 # secret_file = os.path.join(BASE_DIR, 'secrets.json')
