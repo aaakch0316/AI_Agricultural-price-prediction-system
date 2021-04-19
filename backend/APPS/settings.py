@@ -206,3 +206,6 @@ JWT_AUTH = {
 
 #django sites app setting
 SITE_ID = 1
+
+STATIC_URL = '/static/' 
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')

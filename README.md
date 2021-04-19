@@ -5,6 +5,7 @@
 
 Heroku
 - pip install django-cors-headers gunicorn psycopg2-binary whitenoise dj-database-url
+- pip install django_heroku
 - django-cors-headers : cors 방지
 - gunicorn : 배포위한 도구
 - psycopg2-binary, dj-database-url : 헤로쿠에서 사용하는 DB 활용하는 것
