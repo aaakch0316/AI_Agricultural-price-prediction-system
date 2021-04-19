@@ -22,22 +22,22 @@ from datetime import datetime
 
 
 # 예회처리
-from pathlib import Path
-BASE_DIR = Path(__file__).resolve().parent.parent
+# from pathlib import Path
+# BASE_DIR = Path(__file__).resolve().parent.parent
 
 import os, json
-from django.core.exceptions import ImproperlyConfigured # 예외처리 할 부분 불어오기
-secret_file = os.path.join(BASE_DIR, 'secrets.json')
-# json 변수 읽어오기
-with open(secret_file) as f:
-    secrets = json.loads(f.read())
-def get_secret(setting, secrets=secrets):
-    try:
-        print("check:", secrets[setting])
-        return secrets[setting]
-    except KeyError:
-        error_msg = "Set the {} environment variable".format(setting)
-        raise ImproperlyConfigured
+# from django.core.exceptions import ImproperlyConfigured # 예외처리 할 부분 불어오기
+# secret_file = os.path.join(BASE_DIR, 'secrets.json')
+# # json 변수 읽어오기
+# with open(secret_file) as f:
+#     secrets = json.loads(f.read())
+# def get_secret(setting, secrets=secrets):
+#     try:
+#         print("check:", secrets[setting])
+#         return secrets[setting]
+#     except KeyError:
+#         error_msg = "Set the {} environment variable".format(setting)
+#         raise ImproperlyConfigured
 
 # SECRET_KEY = get_secret("SECRET_KEY")
 
@@ -78,7 +78,7 @@ def add_main_price(request):
              ['깻잎', '1011', '상자', ['특', '상']]]
     # SECRET_KEY = get_secret("SECRET_KEY")
     for each_data in data_load:
-        key=get_secret("API_KEY")
+        key="jZ3%2FFq%2BXYo%2Be7JjXmVrkIBfYzl3XyQf6cSsyL5zUxo%2FBajw58wdOx31jgntb1MGCYtW0ieiVt5IcxCoBK2%2Bj6g%3D%3D"
         url = f'http://apis.data.go.kr/B552895/openapi/service/OrgPriceAuctionService/getExactProdPriceList?serviceKey={key}&'
         queryParams = urlencode({ quote_plus('numOfRows') : 2000000,
                                 quote_plus('pageNo') : 1,
