@@ -9,9 +9,9 @@ https://docs.djangoproject.com/en/3.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
+import dj_database_url
 
 from pathlib import Path
-import dj_database_url
 import datetime
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -40,7 +40,8 @@ def get_secret(setting, secrets=secrets):
 
 # SECURITY WARNING: keep the secret key used in production secret!
 # SECRET_KEY = 'rrw)*)&v&*326@(w+dw#$mlqe8@fj(sdmcb@o9^_ah5xebp#f#'
-SECRET_KEY = get_secret("SECRET_KEY")
+# SECRET_KEY = get_secret("SECRET_KEY") 
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', get_secret("SECRET_KEY"))
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -74,7 +75,8 @@ INSTALLED_APPS = [
     'prices',
 
     # Heroku
-    'dj_database_url',
+    # 'dj_database_url',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
@@ -86,6 +88,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'APPS.urls'
@@ -121,6 +124,8 @@ DATABASES = {
 
 db_from_env = dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(db_from_env)
+
+
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
